@@ -3,13 +3,19 @@ float my_tools(Set<int> set1, Set<int> set2);
 int main() {
     int values[] = { 5, 4, 6 };
     Set<int> set1(values, 3);
+    Set<int> set_test(values, 3);
+
+    if (set1 == set_test) { std::cout << "True" << std::endl; }// Проверка оператора==
     
     Set<int> set2;
     set2 += 4;
     set2 += 2;
     set2 += 6;
 
-    float test = my_tools(set1, set2);
+    if (set1 == set2) { std::cout << "True" << std::endl; }// Проверка оператора==
+    else { std::cout << "False" << std::endl; }
+
+    float test = my_tools(set1, set2);//Доп задание
     std::cout << test << std::endl;
 
     Set<int> set = set1 + set2;
@@ -64,6 +70,7 @@ int main() {
     return 0;
 }
 
+//Доп задание
 float my_tools(Set<int> set1, Set<int> set2) {
     Set<int> tmp = set1 + set2;
     int sum = 0;
