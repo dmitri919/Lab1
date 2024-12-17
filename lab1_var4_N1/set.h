@@ -24,6 +24,8 @@ public:
 
     T operator[] (size_t i) const;
 
+    bool operator==(const Set& other) const;
+
     Set operator+(const Set& other) const;
     Set operator-(const Set& other) const;
     Set operator+(const T& value) const;
@@ -70,7 +72,7 @@ template<typename T>
 void Set<T>::addUniq(const T& value) {
     bool Uniqflag = true;
     for (size_t i = 0; i < size; i++) {
-        if (elements[i] == value) { 
+        if (contains(value)) { 
             Uniqflag = false; 
             break;
         }
@@ -246,6 +248,7 @@ Set<T> Set<T>::intersection(const Set& other) const {
     return result;
 }
 
+//Нашел - true
 template<typename T>
 bool Set<T>::contains(const T& value) const {
     if (size == 0) return false; // Проверка на пустой набор
@@ -274,4 +277,14 @@ Set<T> UniqueElements(const Set<T>& set1, const Set<T>& set2) {
         }
     }
     return result;
+}
+
+template<typename T>
+bool Set<T>::operator==(const Set& other) const {
+    bool flag = true;
+    if (size != other.size) { return false; }
+    for (size_t i = 0; i < size; i++) {
+        if (!contains(other.elements[i])) { return false; }
+    }
+    return true;
 }

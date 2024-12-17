@@ -22,7 +22,7 @@ int main() {
     std::cout << "Set: " << set << std::endl;
     std::cout << "Set random: " << set_r << std::endl;
     std::cout<< "\n" << std::endl;
-    std::cout << "Unique elements: " << set.uniqueElements(set_r) << std::endl;
+    std::cout << "Unique elements: " << UniqueElements(set, set_r) << std::endl;
     std::cout << "Set - Set2: " << set - set2 << std::endl;//вычитание
     std::cout << "Intersection Set & Set1: " << set.intersection(set1) << std::endl;//пересечение
     // Попытка удаления несуществующего элемента
@@ -39,7 +39,7 @@ int main() {
     float arr4[] = { 4.4, 5.5, 6.6, 7.7, 8.8 };
     Set<float> set3(arr3, 5);
     Set<float> set4(arr4, 5);
-    Set<float> uniqueFloatElements = set3.uniqueElements(set4);
+    Set<float> uniqueFloatElements = UniqueElements(set3, set4);
     std::cout << "Unique float elements: " << uniqueFloatElements << std::endl;
 
     // Пример с типом std::string
@@ -47,7 +47,7 @@ int main() {
     std::string arr6[] = { "date", "fig", "grape", "honeydew", "kiwi" };
     Set<std::string> set5(arr5, 5);
     Set<std::string> set6(arr6, 5);
-    Set<std::string> uniqueStringElements = set5.uniqueElements(set6);
+    Set<std::string> uniqueStringElements = UniqueElements(set5, set6);
     std::cout << "Unique string elements: " << uniqueStringElements << std::endl;
 
     // Пример с типом std::pair<int, double>
@@ -55,7 +55,7 @@ int main() {
     std::pair<int, double> arr8[] = { {4, 4.4}, {5, 5.5}, {6, 6.6}, {7, 7.7}, {8, 8.8} };
     Set<std::pair<int, double>> set7(arr7, 5);
     Set<std::pair<int, double>> set8(arr8, 5);
-    Set<std::pair<int, double>> uniquePairElements = set7.uniqueElements(set8);
+    Set<std::pair<int, double>> uniquePairElements = UniqueElements(set7, set8);
     std::cout << "Unique pair elements: " << uniquePairElements << std::endl;
 
     Set<float> set10(10, 0, 11);
