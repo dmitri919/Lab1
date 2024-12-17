@@ -40,9 +40,7 @@ public:
         return os;
     }
 
-    Set uniqueElements(const Set& other) const;
-
-    size_t give_me_size() {
+    size_t give_me_size() const{
         return size;
     }
 };
@@ -263,16 +261,16 @@ bool Set<T>::contains(const T& value) const {
 }
 
 template<typename T>
-Set<T> Set<T>::uniqueElements(const Set& other) const {
-    Set result;
-    for (size_t i = 0; i < size; ++i) {
-        if (!other.contains(elements[i])) {
-            result += elements[i];
+Set<T> UniqueElements(const Set<T>& set1, const Set<T>& set2) {
+    Set<T> result;
+    for (size_t i = 0; i < set1.give_me_size(); i++) {
+        if (!set2.contains(set1[i])) {
+            result += set1[i];
         }
     }
-    for (size_t i = 0; i < other.size; ++i) {
-        if (!contains(other.elements[i])) {
-            result += other.elements[i];
+    for (size_t i = 0; i < set2.give_me_size(); i++) {
+        if (!set1.contains(set2[i])) {
+            result += set2[i];
         }
     }
     return result;
