@@ -263,7 +263,7 @@ bool Set<T>::contains(const T& value) const {
     return false;
 }
 
-template<typename T>
+template<typename T>//Вывод множеста уникальных эллементов из 2-ух множеств
 Set<T> UniqueElements(const Set<T>& set1, const Set<T>& set2) {
     Set<T> result;
     for (size_t i = 0; i < set1.give_me_size(); i++) {
